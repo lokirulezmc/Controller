@@ -1,0 +1,43 @@
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.so*
+*.dll
+*.dylib
+.DS_Store
+
+# Qt-es
+
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+Makefile
+Makefile.*
+*-build-*
+ui_*
+object_*
+engine/src/qlcconfig.h
+*.swp
+
+# Binaries
+*.exe
+*_test
+main/qlcplus
+fixtureeditor/qlcplus-fixtureeditor
+launcher/qlcplus-launcher
+hotplugmonitor/test/test
+qmlui/qlcplus-qml
+*.qm
+core
+
+# coverage
+coverage/
+*.gcda
+*.gcno
