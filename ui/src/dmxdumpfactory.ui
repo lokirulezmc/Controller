@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Massimo Callegari</author>
+ <comment>
+  Q Light Controller Plus
+  dmxdumpfactory.ui
+
+  Copyright (c) 2015 Massimo Callegari
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0.txt
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ </comment>
+ <class>DmxDumpFactory</class>
+ <widget class="QDialog" name="DmxDumpFactory">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>530</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dump DMX values</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="qlcui.qrc">
+    <normaloff>:/add_dump.png</normaloff>:/add_dump.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="3" column="0">
+    <widget class="QCheckBox" name="m_nonZeroCheck">
+     <property name="text">
+      <string>Dump only non-zero values</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Scene name:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="m_sceneName"/>
+     </item>
+     <item>
+      <widget class="QToolButton" name="m_sceneButton">
+       <property name="toolTip">
+        <string>Select an existing Scene to overwrite</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+       <property name="icon">
+        <iconset resource="qlcui.qrc">
+         <normaloff>:/scene.png</normaloff>:/scene.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Dump options</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="3" column="2" colspan="2">
+       <widget class="QTreeWidget" name="m_addtoTree">
+        <property name="rootIsDecorated">
+         <bool>false</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Add to:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="m_chaserRadio">
+           <property name="text">
+            <string>Chaser</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="m_buttonRadio">
+           <property name="text">
+            <string>Button</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="m_sliderRadio">
+           <property name="text">
+            <string>Slider</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0" rowspan="2" colspan="2">
+       <layout class="QVBoxLayout" name="m_treeLayout"/>
+      </item>
+      <item row="1" column="0" colspan="4">
+       <widget class="QFrame" name="frame_2">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="m_dumpAllRadio">
+           <property name="text">
+            <string notr="true">Dump all channels</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="m_dumpSelectedRadio">
+           <property name="text">
+            <string>Dump selected channels</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="qlcui.qrc"/>
+  <include location="qlcui.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_nonZeroCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>slotDumpNonZeroChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>141</x>
+     <y>800</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_chaserRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>slotUpdateChasersTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_buttonRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>slotUpdateButtons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>184</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sliderRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>slotUpdateSliders()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>696</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>736</x>
+     <y>569</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_dumpAllRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DmxDumpFactory</receiver>
+   <slot>slotDumpModeChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>809</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotDumpModeChanged(bool)</slot>
+  <slot>slotDumpNonZeroChanged(bool)</slot>
+  <slot>slotUpdateChasersTree()</slot>
+  <slot>slotUpdateButtons()</slot>
+  <slot>slotUpdateSliders()</slot>
+ </slots>
+</ui>
